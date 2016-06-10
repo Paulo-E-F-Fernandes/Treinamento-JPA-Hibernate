@@ -12,3 +12,17 @@
 4. Importação no eclipse.
     * No Eclipse: File > Import... > Existing Projects into Workspace
 
+5. Correção dos erros no eclipse:
+    * Faceted Project Problem > Java compiler level does not match the version of the installed Java project facet.
+        ** SOLUÇÃO: Properties > Project Facets > Java => Selecionar versão correta do Java
+
+    * Java Build Path Problems > Unbound classpath variable: 'M2_REPO/junit/junit/3.8.1/junit-3.8.1.jar' in project 'Treinamento-JPA-Hibernate'
+        ** SOLUÇÃO: Adicionar o Classpath Variable do maven repository (M2_REPO):
+             Window > Preferences > Java > Build Path > Classpath Variable
+
+    * XML Problem > Referenced file contains errors (http://maven.apache.org/maven-v4_0_0.xsd)
+        ** SOLUÇÃO: Aleterar no pom.xml o atributo "xsi:schemaLocation":
+            - Trocar "http://maven.apache.org/maven-v4_0_0.xsd" por "http://maven.apache.org/xsd/maven-4.0.0.xsd"
+
+ 
+

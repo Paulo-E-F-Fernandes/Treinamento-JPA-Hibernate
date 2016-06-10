@@ -1,0 +1,14 @@
+1. Criação do projeto pelo maven: 
+    *  mvn archetype:generate -DgroupId=br.com.treinamento.jpa.hibernate 
+           -DartifactId=Treinamento-JPA-Hibernate -DinteractiveMode=false 
+           -DarchetypeArtifactId=maven-archetype-webapp
+
+2. Criação do repositório git dentro do projeto criado:
+    * git init
+
+3. Configuração do build path e dependência pelo maven:
+    * mvn eclipse:eclipse -Dwtpversion=2.0
+
+4. Importação no eclipse.
+
+

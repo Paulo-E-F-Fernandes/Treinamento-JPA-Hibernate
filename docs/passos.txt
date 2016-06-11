@@ -24,5 +24,6 @@
         ** SOLUÇÃO: Aleterar no pom.xml o atributo "xsi:schemaLocation":
             - Trocar "http://maven.apache.org/maven-v4_0_0.xsd" por "http://maven.apache.org/xsd/maven-4.0.0.xsd"
 
- 
+6. Configuração do repositório remoto do git:
+    * git remote add origin git@github.com:Paulo-E-F-Fernandes/Treinamento-JPA-Hibernate.git 
 

@@ -30,5 +30,8 @@
 7. Envio dos arquivos para o servidor remoto:
     * Primeiro fazer o "git pull origin master" para sincronização com o repositório remoto e depois "git push origin master" para enviar os arquivos do repositório local para o remoto.
 
-8. Adição da dependência do Hibernate no pom.xml. 
+8. Adição da dependência do Hibernate no pom.xml.
+
+9. Adição do diretório java no path.
+    * Criar o diretório java no src/main do projeto e executar o comando mvn eclipse:eclipse 
 

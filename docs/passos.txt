@@ -25,5 +25,8 @@
             - Trocar "http://maven.apache.org/maven-v4_0_0.xsd" por "http://maven.apache.org/xsd/maven-4.0.0.xsd"
 
 6. Configuração do repositório remoto do git:
-    * git remote add origin git@github.com:Paulo-E-F-Fernandes/Treinamento-JPA-Hibernate.git 
+    * git remote add origin git@github.com:Paulo-E-F-Fernandes/Treinamento-JPA-Hibernate.git
+
+7. Envio dos arquivos para o servidor remoto:
+    * Primeiro fazer o "git pull origin master" para sincronização com o repositório remoto e depois "git push origin master" para enviar os arquivos do repositório local para o remoto. 
 

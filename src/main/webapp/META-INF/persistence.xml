@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+						http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<!-- Nome da unidade de persistência -->
+	<persistence-unit name="TreinamentoJPAHibernatePU">
+		<!-- O provider diz qual é a implementação que será usada como provedor de persistência -->
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		
+		<properties>
+			<!-- Descrição da URL de conexão com o banco de dados (host) -->
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/treinamento-jpa"/>
+			<!-- Nome do usuário do banco de dados -->
+			<property name="javax.persistence.jdbc.user" value="root"/>
+			<!-- Senha do usuário do banco de dados -->
+			<property name="javax.persistence.jdbc.password" value="JN43wEbj7zcd"/>
+			<!-- Nome completo da classe do driver JDBC -->
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+			
+			<!-- Dialeto a ser usado na construção de comandos SQL -->
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>
+			<!-- Exibir as queries no console -->
+			<property name="hibernate.show_sql" value="true"/>
+			<!-- Exibir as queries no console de maneira formatada -->
+			<property name="hibernate.format_sql" value="true"/>
+			<!-- Cria ou atualiza automaticamente a estrutura das tabelas no banco de dados 
+				 * O hibernate.hbm2ddl.auto=update cria as tabelas no banco de dados -->
+			<property name="hibernate.hbm2ddl.auto" value="update"/>
+		</properties>
+	</persistence-unit>
+</persistence>

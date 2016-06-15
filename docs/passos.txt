@@ -34,4 +34,8 @@
 
 9. Adição do diretório java no path.
     * Criar o diretório java no src/main do projeto e executar o comando mvn eclipse:eclipse 
+    
+10. Criação do persistence.xml 
+	* O "persistence.xml" é o arquivo de configuração padrão do JPA e deve ser criado no diretório META-INF da aplicação ou do módulo que contém os beans de entidade.
+		O arquivo "persistence.xml" define unidades de persistência, conhecidas como persistence units.
 

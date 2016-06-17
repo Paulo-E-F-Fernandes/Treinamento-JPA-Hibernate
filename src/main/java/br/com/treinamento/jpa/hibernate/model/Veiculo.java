@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /* Indica que a classe é uma entidade e representa uma tabela do banco de dados. */
@@ -13,7 +14,7 @@ public class Veiculo {
 	/* Declara o identificador do banco de dados. */
 	@Id
 	/* O identificador deve ter um valor gerado no momento de inserção (auto-incremento) */
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long codigo; // identificador único do veículo
 	private String fabricante; // nome do fabricante do veículo
 	private String modelo; // descrição do modelo do veículo

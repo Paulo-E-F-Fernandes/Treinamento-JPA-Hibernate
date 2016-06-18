@@ -44,4 +44,6 @@
 	* Compilar e executar o EntityManagerFactory (CriadorDeTabelas) para criar as tabelas no banco de dados.
 		* OBS.: - A base de dados deve estar criada.
 				- O <provider> no persistence.xml estava causando erro na execução do main, por isso foi retirado.
+	* Sempre que alterrmos as estruturas das entidades, podemos executar a EntityManagerFactory para atualizar as tabelas do banco de dados.  
+	
 	

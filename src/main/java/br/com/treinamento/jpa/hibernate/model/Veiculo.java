@@ -2,24 +2,34 @@ package br.com.treinamento.jpa.hibernate.model;
 
 import java.math.BigDecimal;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
-/* Indica que a classe é uma entidade e representa uma tabela do banco de dados. */
-@Entity
+@Entity /* Indica que a classe é uma entidade e representa uma tabela do banco de dados. */
+@Table(name = "tab_veiculo") /* O nome da tabela no banco de dados será "tab_veiculo" e não mais "Veiculo" */
 public class Veiculo {
 
-	/* Declara o identificador do banco de dados. */
-	@Id
-	/* O identificador deve ter um valor gerado no momento de inserção (auto-incremento) */
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Id /* Declara o identificador do banco de dados. */
+	@GeneratedValue(strategy = GenerationType.AUTO) /* O identificador deve ter um valor gerado no momento de inserção (auto-incremento) */
 	private Long codigo; // identificador único do veículo
+	
+	@Column(length = 60, nullable = false)
 	private String fabricante; // nome do fabricante do veículo
+	
+	@Column(length = 60, nullable = false)
 	private String modelo; // descrição do modelo do veículo
+	
+	@Column(name = "ano_fabricacao", nullable = false)
 	private Integer anoFabricacao; // ano de fabricação do veículo
+	
+	@Column(name = "ano_modelo", nullable = false)
 	private Integer anoModelo; // ano do modelo do veículo
+	
+	@Column(precision = 10, scale = 2, nullable = true) /* A precisão da coluna valor será 10, com 2 casas decimais */
 	private BigDecimal valor; // valor que está sendo pedido para venda do veículo
 
 	public Long getCodigo() {

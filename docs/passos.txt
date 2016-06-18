@@ -41,4 +41,7 @@
 
 11. Criação do EntityManagerFactory:
 	* Para que as tabelas mapeadas pelas entidades sejam criadas ou atualizadas é preciso criar o EntityManagerFactory.
+	* Compilar e executar o EntityManagerFactory (CriadorDeTabelas) para criar as tabelas no banco de dados.
+		* OBS.: - A base de dados deve estar criada.
+				- O <provider> no persistence.xml estava causando erro na execução do main, por isso foi retirado.
 	

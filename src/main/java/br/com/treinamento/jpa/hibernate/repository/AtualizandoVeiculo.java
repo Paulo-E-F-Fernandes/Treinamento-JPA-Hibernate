@@ -20,7 +20,11 @@ public class AtualizandoVeiculo {
 		Veiculo veiculo = manager.find(Veiculo.class, 1L); 
 		
 		System.out.println("Valor atual: R$ " + veiculo.getValor());
-		veiculo.setValor(veiculo.getValor().add(new BigDecimal(523))); // Atualiza o valor do veículo
+		// Atualiza o valor do veículo
+		// Não é necessário utilizar nenhum método para atualizar o valor, a alteração nos atributos do objeto
+		//  são identificadas e já realizam a atualização no banco, que são efetivadas após a realização do commit
+		//  da transação.
+		veiculo.setValor(veiculo.getValor().add(new BigDecimal(523)));
 		System.out.println("Novo valor: R$ " + veiculo.getValor());
 		
 		// Commita a transação no banco de dados

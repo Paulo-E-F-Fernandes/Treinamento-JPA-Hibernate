@@ -1,0 +1,3 @@
+*** Cache de primeiro nível ***
+Quando uma entidade é pesquisada e ela já existe no contexto de persistência, que é uma coleção de objetos gerenciados (managed) por um EntityManager, o objeto existente é retornado, sem acessar o banco de dados.
+

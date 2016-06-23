@@ -1,0 +1,16 @@
+*** transient ***
+São instanciados usando o operador new. Isso significa que eles ainda não estão associados com um registro na tabela do banco de dados, e podem ser perdidos e coletados pelo garbage collector quando não estiver mais sendo usado.
+
+*** managed ***
+são instâncias de entidades que possuem um identificador e representam um registro da tabela do banco de dados.
+
+Objetos no estado managed estão sempre associados a um contexto de persistência, portanto, quaisquer alterações nesses objetos são sincronizadas com o banco de dados.
+
+*** detached ***
+Um objeto sempre inicia no estado transient e depois pode se tornar managed.
+Quando o Entity Manager é fechado, continua existindo a instância do objeto, mas agora está no estado detached. Neste estado o objeto está desconectado, não tendo mais sincronia com o banco de dados. A JPA fornece operações para reconectar esse objeto a um novo EntityManager.
+
+*** removed ***
+Uma instância de uma entidade pode ser excluída através do método remove do EntityManager.
+
+Um objeto entra no estado removed quando ele é marcado para ser eliminado, mas é fisicamente excluído durante a sincronização com o banco de dados.

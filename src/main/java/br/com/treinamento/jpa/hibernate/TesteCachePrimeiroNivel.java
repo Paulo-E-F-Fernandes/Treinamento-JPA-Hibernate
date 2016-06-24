@@ -12,6 +12,8 @@ public class TesteCachePrimeiroNivel {
 	 */
 	public static void main(String[] args) {
 		testarMesmoEntityManager();
+		testarDiferenteEntityManager();
+		JPAUtil.close();
 	}
 
 	/* 
@@ -31,10 +33,32 @@ public class TesteCachePrimeiroNivel {
 		System.out.println("Mesmo veículo? " + (veiculo1 == veiculo2));
 		
 		manager.close();
-		JPAUtil.close();
 	}
 
-	
+	private static void testarDiferenteEntityManager() {
+		EntityManager manager = JPAUtil.getEntityManager();
+		
+		System.out.println("\n***testarDiferenteEntityManager***");
+		Veiculo veiculo1 = manager.find(Veiculo.class, 2L);
+		System.out.println("Buscou o veículo pela primeira vez...");
+		
+		// O método contains de EntityManager verifica se o objeto está sendo gerenciado 
+		//  pelo contexto de persistência do EntityManager.
+		System.out.println("Gerenciado? " + manager.contains(veiculo1));
+		
+		// O método detach pára de gerenciar a entidade no contexto de persistência, 
+		//  colocando-a no estado detached.
+		manager.detach(veiculo1);
+		
+		System.out.println("Continua gerenciado? " + manager.contains(veiculo1));
+		
+		Veiculo veiculo2 = manager.find(Veiculo.class, 2L);
+		System.out.println("Buscou o veículo pela segunda vez...");
+		
+		System.out.println("Mesmo veículo? " + (veiculo1 == veiculo2));
+		
+		manager.close();
+	}
 	
 	
 	

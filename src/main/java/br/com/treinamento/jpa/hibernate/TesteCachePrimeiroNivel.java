@@ -11,7 +11,6 @@ public class TesteCachePrimeiroNivel {
 	 * desde que seja em diferentes instâncias de EntityManagers. 
 	 */
 	public static void main(String[] args) {
-		System.out.println("***testarMesmoEntityManager***");
 		testarMesmoEntityManager();
 	}
 
@@ -22,6 +21,7 @@ public class TesteCachePrimeiroNivel {
 	private static void testarMesmoEntityManager() {
 		EntityManager manager = JPAUtil.getEntityManager();
 		
+		System.out.println("***testarMesmoEntityManager***");
 		Veiculo veiculo1 = manager.find(Veiculo.class, 2L);
 		System.out.println("Buscou o veículo pela primeira vez...");
 		

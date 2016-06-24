@@ -33,6 +33,7 @@ public class PersistindoVeiculo {
 		manager.persist(veiculo);
 		
 		// Executar o commit da transação para efetivar a inserção do veículo no banco de dados.
+		// Os estados de entidades são sincronizados com o banco de dados quando ocorre o commit da transação.
 		tx.commit();
 		
 		// Fechar o EntityManager.

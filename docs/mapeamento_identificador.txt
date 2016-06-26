@@ -1,0 +1,26 @@
+*** Identificadores: Representam a chave primária de uma tabela do banco de dados.
+Ex.: 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "cod_veiculo")
+    private Long codigo;
+
+-- @Id => indica que o atributo "codigo" representa o id da tabela. 
+-- @GeneratedValue(strategy = GenerationType.AUTO) => indica que o valor do identificador será gerado automaticamente
+    usando uma estratégia nativa do banco de dados, que no caso do MySQL, é o auto-incremento.
+-- @Column(name = "cod_veiculo") => indica que o nome da coluna na tabela do banco de dados é "cod_veiculo".
+    Caso não seja informado o "name" do @Column, o nome da coluna será o mesmo do atributo, neste caso "codigo".
+    
+OBS.: Existe um gerador de chave próprio do Hibernate chamado "increment", que é "select max + 1".
+      Para usá-lo, incluímos a anotação "@GenericGenerator" e informamos a propriedade **strategy = "increment"**,
+       damos um nome a esse gerador, por exemplo **name = "inc"** e depois associamos ele na anotação @GeneratedValue,
+       informando a propriedade **generator = "inc"**, o mesmo nome escolhido para o gerador.
+      Ex.:
+          @Id
+          @GeneratedValue(generator = "inc")
+          @GenericGenerator(name = "inc", strategy = "increment")
+          @Column(name = "cod_veiculo")
+          private Long codigo;
+          
+* Esses são os  geradores de identificadores mais usados. Na documentação existe outros tipos de geradores.
+  Também é possível desenvolver um gerador customizado.

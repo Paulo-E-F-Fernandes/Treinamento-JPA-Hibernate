@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 import br.com.treinamento.jpa.hibernate.enuns.TipoCombustivel;
 
@@ -129,6 +130,18 @@ public class Veiculo {
 		this.dataCadastro = dataCadastro;
 	}
 	
+	/* *** MÉTODOS DE NEGÓCIO *** */
+	/* 
+	 * Quando temos um método get ou um atributo que não deve ser mapeado e persistido no banco de dados, utilizamos a
+	 *  anotação @Transient, com isso ele será totalmente ignorado pelo sistema de persistência.
+	 */
+	@Transient
+	public String getAnuncio() {
+		return this.fabricante + " " + this.modelo + " " + this.anoFabricacao + "/" + this.anoModelo
+				+ " por apenas R$ " + this.valor;
+	}
+	
+	/* *** HASHCODE E EQUALS *** */
 	/* 
 	 * Os métodos hashCode() e equals() são necessários para que os objetos persistentes
 	 *  sejam diferenciados um dos outros.

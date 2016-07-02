@@ -36,11 +36,9 @@ public class Veiculo {
 	@Column(precision = 10, scale = 2, nullable = true) /* A precisão da coluna valor será 10, com 2 casas decimais */
 	private BigDecimal valor; // valor que está sendo pedido para venda do veículo
 	
-	/*
-	 * A anotação @Enumerated configura o tipo da enumeração como string.
-	 * Fazemos isso para que a coluna do banco de dados armazene o nome da constante e não o número que 
-	 *  representa a opção na enumeração.
-	 */
+	/* A anotação @Enumerated configura o tipo da enumeração. */
+	/* O @Enumerated(EnumType.STRING) configura o tipo de enumeração como string, e isso indica que a coluna do banco
+	 *  de dados vai armazenar o nome da constante. */
 	@Enumerated(EnumType.STRING)
 	@Column(name = "tipo_combustivel", nullable = false)
 	private TipoCombustivel tipoCombustivel;

@@ -1,6 +1,7 @@
 package br.com.treinamento.jpa.hibernate.model;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,6 +11,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import br.com.treinamento.jpa.hibernate.enuns.TipoCombustivel;
 
@@ -49,6 +52,17 @@ public class Veiculo {
 	@Enumerated(EnumType.ORDINAL)
 	@Column(name = "tipo_combustivel", nullable = false)
 	private TipoCombustivel tipoCombustivel;
+	
+	/*
+	 * O tipo de uma propriedade é automaticamente detectado, mas propriedades do tipo Date ou Calendar é necessário
+	 *  definir a precisão da data/hora, para isso usamos a anotação @Temporal.
+	 *  
+	 * O Hibernate usa como padrão a definição "TemporalType.TIMESTAMP" para as propriedades de datas. As outras opções
+	 *  são "TemporalType.TIME" e "TemporalType.DATE".
+	 */
+	@Temporal(TemporalType.DATE)
+	@Column(name = "data_cadastro")
+	private Date dataCadastro;
 
 	/* ***GETTERS E SETTERS*** */
 	public Long getCodigo() {
@@ -107,6 +121,14 @@ public class Veiculo {
 		this.tipoCombustivel = tipoCombustivel;
 	}
 
+	public Date getDataCadastro() {
+		return dataCadastro;
+	}
+	
+	public void setDataCadastro(Date dataCadastro) {
+		this.dataCadastro = dataCadastro;
+	}
+	
 	/* 
 	 * Os métodos hashCode() e equals() são necessários para que os objetos persistentes
 	 *  sejam diferenciados um dos outros.

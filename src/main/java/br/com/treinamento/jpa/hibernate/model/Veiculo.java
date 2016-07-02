@@ -4,10 +4,14 @@ import java.math.BigDecimal;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import br.com.treinamento.jpa.hibernate.enuns.TipoCombustivel;
 
 @Entity /* Indica que a classe é uma entidade e representa uma tabela do banco de dados. */
 @Table(name = "tab_veiculo") /* O nome da tabela no banco de dados será "tab_veiculo" e não mais "Veiculo" */
@@ -31,7 +35,17 @@ public class Veiculo {
 	
 	@Column(precision = 10, scale = 2, nullable = true) /* A precisão da coluna valor será 10, com 2 casas decimais */
 	private BigDecimal valor; // valor que está sendo pedido para venda do veículo
+	
+	/*
+	 * A anotação @Enumerated configura o tipo da enumeração como string.
+	 * Fazemos isso para que a coluna do banco de dados armazene o nome da constante e não o número que 
+	 *  representa a opção na enumeração.
+	 */
+	@Enumerated(EnumType.STRING)
+	@Column(name = "tipo_combustivel", nullable = false)
+	private TipoCombustivel tipoCombustivel;
 
+	/* ***GETTERS E SETTERS*** */
 	public Long getCodigo() {
 		return codigo;
 	}
@@ -78,6 +92,14 @@ public class Veiculo {
 
 	public void setValor(BigDecimal valor) {
 		this.valor = valor;
+	}
+	
+	public TipoCombustivel getTipoCombustivel() {
+		return tipoCombustivel;
+	}
+	
+	public void setTipoCombustivel(TipoCombustivel tipoCombustivel) {
+		this.tipoCombustivel = tipoCombustivel;
 	}
 
 	/* 

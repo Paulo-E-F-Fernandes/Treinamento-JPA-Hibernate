@@ -37,9 +37,16 @@ public class Veiculo {
 	private BigDecimal valor; // valor que está sendo pedido para venda do veículo
 	
 	/* A anotação @Enumerated configura o tipo da enumeração. */
-	/* O @Enumerated(EnumType.STRING) configura o tipo de enumeração como string, e isso indica que a coluna do banco
-	 *  de dados vai armazenar o nome da constante. */
-	@Enumerated(EnumType.STRING)
+	/* 
+	 * O @Enumerated(EnumType.STRING) configura o tipo de enumeração como string e isso indica que a coluna do banco
+	 *  de dados vai armazenar o nome da constante. 
+	 */
+	/*
+	 * O @Enumerated(EnumType.ORDINAL) configura o tipo de enumeração como ordinal, o padrão e isso indica que a coluna
+	 *  do banco de dados vai armazenar o número que representa a opção na enumeração.  
+	 */
+	//@Enumerated(EnumType.STRING)
+	@Enumerated(EnumType.ORDINAL)
 	@Column(name = "tipo_combustivel", nullable = false)
 	private TipoCombustivel tipoCombustivel;
 
